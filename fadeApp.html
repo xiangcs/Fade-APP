@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Basic Assignment</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
+	<style>
+	.default{
+		opacity: 0;
+	}
+	.fadeIn{
+		transition: opacity 0.75s;
+		opacity: 1;
+	}
+	.fadeOut {
+		transition: opacity 0.75s;
+		opacity: 0;
+	}
+	</style>
+    </head>
+<body>
+<div  ng-app="app">
+    <div ng-controller="myCtrl">
+        <button ng-click="fadeIn()">FadeIn Img</button>
+        <button ng-click="fadeOut()">FadeOut Img</button>
+        <hr>
+        <img ng-class="fade" src="OOZN-design.jpg"/>
+    </div>
+</div>
+<script>
+	angular.module('app',['ngAnimate']).
+	controller('myCtrl',['$scope',function($scope){
+				$scope.fade = 'default';
+				$scope.fadeIn =function () {
+					$scope.fade = 'fadeIn';
+				};
+				$scope.fadeOut =function () {
+					$scope.fade='fadeOut';
+				};
+			}]);
+</script>
+</body>
+</html>
